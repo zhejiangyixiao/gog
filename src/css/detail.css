@@ -1,0 +1,184 @@
+.container {
+    align-items: flex-start;
+    margin-top: 0;
+    background: #D8D8D8;
+}
+body{
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+.bg{
+    box-shadow:inset 0px -100px 500px black;
+    width: 1920px;
+    height: 655px;
+    background: url(https://images.gog-statics.com/6d132a2a03744c4a29682278772ebba68307b6ca52a9b160b66dd7baac6bad6a_bg_crop_1920x655.jpg) no-repeat;
+    
+}
+.content {
+    width: 1096px;
+}
+.header {
+    width: 100%;
+    height: 120px;
+    position: relative;
+}
+.header img {
+    width: 480px;
+    height: 285px;
+    position: absolute;
+    left: 0;
+    top: -285px;
+}
+
+.header .card {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 380px;
+    height: 161px;
+    padding: 24px 20px;
+    padding-top: 16px;
+    background-color: #e9e9e9;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,.25);
+}
+.card .price {
+    margin-left: 138px;
+}
+.card .price span:nth-child(1){
+    position: absolute;
+    left: 0;
+    top: 13px;
+    line-height: 55px;
+    width: 128px;
+    height: 55px;
+    background: #86328a;
+    color: #fff;
+    font-size: 32px;
+    text-align: center;
+    border-radius: 0 5px 5px 0;
+}
+.card .price span:nth-child(2){
+
+display: block;
+    color: #404040;
+    font-size: 16px;
+    margin-bottom: 2px;
+    text-decoration: line-through;
+    opacity: .5;
+}
+.card .price span:nth-child(3){
+    display: block;
+    font-size: 32px;
+    letter-spacing: 0;
+    line-height: 32px;
+    height: 32px;
+    color: #404040;
+}
+
+.card button:nth-child(2){
+    margin-top: 25px;
+    background: linear-gradient(180deg,#a7c900,#88b500);
+    border: 1px solid #96bd27;
+    border-bottom-color: #69941b;
+    border-left-color: #7fa721;
+    border-right-color: #7fa721;
+    margin-bottom: 16px;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    display: block;
+    border-radius: 5px;
+    padding: 15px;
+    width: 100%;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.25);
+    font-weight: 700;
+    outline: none;
+}
+.card button:nth-child(3){
+    font-size: 14px;
+    display: block;
+    border-radius: 5px;
+    width: 100%;
+    font-weight: 700;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+}
+
+.header .title{
+    line-height: 18px;
+    margin-bottom: 38px;
+    padding-top: 35px;
+    box-sizing: border-box;
+}
+.title h1 {
+    width: 59.85401%;
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 39px;
+    color: #212121;
+    margin-bottom: 13px;
+}
+.title>div {
+    display: flex;
+    color: #545454;
+    box-sizing: border-box;
+}
+.title>div span {
+    border-right: 1px solid #545454;
+    padding: 0px 10px;
+}
+.content_banner {
+    width: 100%;
+    height: 170px;
+    padding-bottom: 18px;
+    margin-bottom: 32px;
+    background: lightblue;
+}
+
+.detail_game {
+    display: flex;
+    justify-content: space-between;
+
+}
+
+.detail_game .left {
+    width: 57%;
+    height: 1323px;
+    background: lightcoral;
+
+}
+
+
+.detail_game .right {
+    width: 40%;
+    height: 750px;
+    background: lightcoral;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

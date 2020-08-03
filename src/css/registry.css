@@ -1,0 +1,35 @@
+fieldset {
+    width: 616px;
+    height: 666px;
+    border: none;
+}
+.container {
+    background: #1B2838;
+}
+/* 标题 */
+legend {
+    font-size: 30px;
+    color: #d6d7d8;
+    margin-bottom: 16px;
+}
+/* 表单input设置 */
+form input {
+    width: 300px;
+    height: 18px;
+    margin: 4px 0;
+    font-size: 16px;
+    line-height: 21px;
+    background: #32353C;
+    border-radius: 3px;
+    color: #E9E9E9;
+    padding: 8px 6px;
+    display: block;
+    box-shadow: none;
+    border: none;
+}
+form label {
+    font-size: 14px;
+    display: inline-block;
+    margin-top: 10px;
+    color: #E9E9E9;
+}

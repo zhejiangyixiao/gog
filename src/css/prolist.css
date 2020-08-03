@@ -1,0 +1,158 @@
+
+.commom_flex_between_center {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.container {
+    align-items: flex-start;
+    background: #D8D8D8;
+}
+.content {
+    width: 1096px;
+}
+.menu_box {
+    width: 100%;
+    height: 60px;
+    font-size: 16px;
+    color: #212121;
+    border-bottom: 1px lightgray solid;
+}
+.menu_box_left {
+    font-size: 12px;
+    margin-left: 30px;
+
+}
+.menu_box_center div {
+    cursor: pointer;
+    margin-right: 30px;
+}
+
+.menu_box_right{
+    font-size: 12px;
+    position: relative;
+}
+.menu_box_right a {
+    color: purple;
+    margin-right: 30px;
+
+}
+.menu_box_right>div{
+    position: relative;
+}
+.menu_create {
+    z-index: 99;
+    padding: 8px 5px;
+    position: absolute;
+    left: 0%;
+    top:100%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    display: none;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.35);
+    border-radius: 3px;
+    border: 1px grey solid;
+}
+.menu_create a {
+    margin-right: 0;
+}
+
+
+
+
+.prolist {
+    width: 100%;
+    padding: 16px 0;
+}
+.prolist li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 10px;
+    transition: .3s;
+    cursor: pointer;
+    border-bottom: 1px #ccc solid;
+}
+.prolist li:hover {
+    background-color: #ECECEC;
+}
+.prolist li img {
+    width: 136px;
+    height: 76px;
+}
+.pro_left {
+    display: flex;
+    align-items: center;
+}
+.pro_left>div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 16px;
+}
+.pro_left .game_title {
+    height: 29px;
+    opacity: 1;
+    font-size: 14px;
+    color: #404040;
+    text-align: left;
+
+}
+.pro_left .sys {
+
+    width: 13px;
+    height: 13px;
+    fill: #999;
+    text-align: left;
+}
+
+
+.pro_right {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.pro_right div{
+    position: relative;
+}
+.pro_right .zhekou {
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    margin-top: -50%;
+    border-radius: 2px;
+    background: #78387b;
+    color: #fff;
+    font-weight: 700;
+    line-height: 12px;
+    padding: 9px 8px;
+    font-size: 16px;
+    margin-right: 8px;
+}
+.pro_right .yuanjia{
+    z-index: 1;
+    position: absolute;
+    right:0;
+    top: -100%;
+    font-size: 12px;
+    color: #666666;
+}
+.pro_right a {
+    margin-left: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #212121;
+    border: 1px solid #7fab34;
+    border-radius: 3px;
+    width: 33px;
+    height: 30px;
+    background-image: linear-gradient(180deg,#a5c700,#86b300);
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.35);
+    display: none;
+
+}

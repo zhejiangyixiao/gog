@@ -1,0 +1,55 @@
+@charset "utf-8";
+@import "var";
+@import "mixin";
+
+
+.sale_title {
+    padding-top: 8px;
+  }
+  .now_on_sale {
+    width: 100%;
+    height: 550px;
+    @include flex-setting(flex,space-between,flex-start);
+    > div {
+        width: 256px;
+        height: 100%;
+        background-image: url(https://images-3.gog-statics.com/aefb5e95db7ad79d31d191e8a2211d20dc1dfd867dc35bab410a383f30ff82e1.jpg);
+        @include box_shadow1();
+      }
+
+      .p1 {
+        color: rgb(255, 255, 255);
+        font-size: 24px;
+        line-height: 30px;
+        font-weight: 700;
+      }
+
+      .p2 span:nth-of-type(1) {
+        color: rgb(255, 236, 0);
+        font-size: 16px;
+      }
+      .p2 span:nth-of-type(2) {
+        color: rgb(255, 236, 0);
+        font-size: 64px;
+        line-height: 64px;
+      }
+
+      .p3 {
+        font-size: 14px;
+        color: rgb(255, 255, 255);
+      }
+
+      .btn_zhekou {
+        font-size: 14px;
+        color: rgb(255, 255, 255);
+        cursor: pointer;
+        padding: 8px 32px;
+        border-width: 1px;
+        border-style: solid;
+        border-color: rgb(255, 255, 255);
+        border-image: initial;
+        border-radius: 4px;
+        background: rgba(255, 255, 255, 0.16);
+      }
+  }
+ 

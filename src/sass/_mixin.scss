@@ -1,0 +1,117 @@
+@charset "utf-8";
+@import "var";
+
+@mixin flex-setting($f:flex,$jc:center,$at:center) {
+    display: $f;
+    justify-content: $jc;
+    align-items: $at;
+}
+
+@mixin title_setting(){
+    height: 32px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 16px;
+    text-align: left;
+    border-bottom: 1px solid rgb(191, 191, 191);
+    margin: 16px 0px;
+}
+
+
+@mixin box_shadow1() {
+        box-shadow: rgba(217, 173, 154, 0.75) 0px 0px 0px 1000px inset;
+        opacity: 1;
+        background-size: cover;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        background-repeat: no-repeat;
+        background-position: 50% center;
+        transition: opacity 0.3s ease-in-out 0s;
+}
+
+
+// card 
+@mixin  card_subbottom($w,$h) {
+    width: $w;
+    height: $h;
+    padding-left: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+
+}
+
+@mixin card_span() {
+    height: 23px;
+            font-size: 12px;
+            line-height: 21px;
+            color: rgb(242, 242, 242);
+            padding: 0px 0.5em;
+            border-radius: 2px;
+            background: rgb(120, 135, 149);
+}
+
+@mixin card_a() {
+    bottom: 7px;
+    top: auto;
+    right: 6px;
+    box-sizing: border-box;
+    height: 23px;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: none;
+    text-align: center;
+    cursor: pointer;
+    line-height: 22px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 1px 3px -1px;
+    color: rgb(104, 104, 104);
+    padding: 0px 0.8em;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgb(166, 166, 166);
+    border-image: initial;
+    border-radius: 3px;
+    margin: 0px 5px;
+}
+@mixin card_p() {
+    font-size: 16px;
+    height: 30px;
+    padding-top: 8px;
+    padding-left: 10px;
+    line-height: 30px;
+}
+
+@mixin card_img($w,$h) {
+    display: block;
+    width: $w;
+    height: $h;
+    background: lightpink;
+}
+
+
+// button
+@mixin button_linear($w,$h) {
+    width: $w;
+    height: $h;
+    box-shadow: $menu_detail_shadow;
+    padding: 0 10px;
+    text-align: center;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 40px;
+    margin-top: 17px;
+    margin-right: 2px;
+    line-height: 40px;
+    font-weight: 400;
+    background: linear-gradient(to bottom, rgba(204,204,204,0.2) 0%, rgba(204,204,204,0.2) 4%, rgba(217,217,217,0.2) 100%);
+    color: #4c4c4c;
+}
+
+
+
+
+

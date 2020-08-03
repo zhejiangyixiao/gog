@@ -1,0 +1,290 @@
+@charset "utf-8";
+@import "mixin";
+@import "var";
+
+@mixin li_setting($w,$h,$pl,$pr) {
+    cursor: pointer;
+    padding-left: $pl;
+    padding-right: $pr;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ccc;
+    width: $w;
+    height: $h;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+ }
+ body {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background: white;
+     
+ }
+ .container {
+     width: 100%;
+     min-height: 800px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background: #1B2838;
+     margin-top: 60px;
+ }
+ .icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: #ccc;
+}
+
+header {
+    width: 100%;
+    height: 56px;
+    background: $header_bg_color;
+    @include flex-setting();
+    position: fixed;
+    z-index: $header_z_index;
+    top: 4px;
+    left: 0;
+    &::before{
+        position: absolute;
+        top: -4px;
+        left: 0;
+        width: 100%;
+        height: 4px;
+        content: '';
+        background:url(https://menu-static.gog-statics.com/assets/img/footer-border.jpg) center center;
+    }
+    nav {
+        width: $content_width;
+        height: 100%;
+        @include flex-setting(flex,space-between,flex-start);
+    }
+    .nav_ul {
+        @include flex-setting(flex,space-between,center);
+        li{
+            position: relative;
+        }
+    }
+
+    .nav_left>li>a{
+        @include li_setting(48px, 56px, 17px, 29px);
+    }
+    .nav_left>li:nth-child(1) {
+        cursor: pointer;
+        padding-left: 0;
+        padding-right: 29px;
+        font-weight: normal;
+        a{
+            background: white;
+            font-weight: normal;
+            display: block;
+            border-radius: 3px;
+            padding-left: 0;
+            padding-right: 0;
+            color: #1A1A1A;
+            width: 32px;
+            height: 30px;
+            .icon{
+                font-size: 32px;
+                margin-top: -1px;
+            }
+        }
+    }
+    .nav_right>li {
+       @include li_setting(18px, 52px, 21px, 21px);
+       .icon{
+        font-size: 26px;
+    }
+        >span{
+            font-size: 12px;
+            padding: 0 4px;
+            position: absolute;
+            left: 34px;
+        }
+        &:nth-child(1),&:nth-child(2){
+            display: none;
+        }
+    }
+    /*>li移入时候的变化 字体变白色 */
+     .nav_left>li:hover>a{
+        color: white;
+    }
+     .nav_left>li:nth-child(1):hover>a{
+        color: black;
+    }
+     .nav_right>li:hover{
+        color: white;
+    }
+    // 一级菜单
+    .menu_list {
+        display: none;
+        flex-direction: column;
+        justify-content: space-between;
+        align-content: center;
+        background: white;
+        position: absolute;
+        left: 0;
+        top: 56px;
+        box-shadow:$menu_box_shadow;
+        .menu_category,.menu_promotion{
+            border-bottom: $color_grey 1px solid;
+        }
+        &::before{
+            content: "";
+            position: absolute;
+            left: 48px;
+            top: -18px;
+            border: 9px white solid;
+            border-color: transparent transparent white transparent;
+            width: 0px;
+            height: 0px;
+        }
+        >ul{
+            
+           a{
+                border-radius: 3px;
+                @include flex-setting(flex,space-between,center);
+                width: 191px;
+                height: 17px;
+                padding: 5px 10px 5px 8px;
+                margin: 0 8px;
+                font-size: 14px;
+                color: $text_a_color;
+                .icon{
+                    font-size: 14px;
+                    color:$color_grey
+                }
+            }  
+            // active 鼠标移入
+            .active {
+                background: lightgray;
+                color:black;
+                .icon{
+                    color: black;
+                }
+            }
+        }
+        
+        /* 设置ul底下边框的空白间隙 */
+        .menu_promotion>li:nth-last-child(1){
+            margin-bottom: 8px;
+        }
+        .menu_category>li:nth-last-child(1){
+            margin-bottom: 8px;
+        }
+        .menu_subclass>li:nth-last-child(1){
+            margin-top: 8px;
+            padding-top: 7px;
+            border-top: 1px lightgray solid;
+            margin-bottom: 8px;
+        }
+        .menu_promotion>li:nth-child(1){
+            margin-top: 7px;
+        }
+        .menu_category>li:nth-child(1){
+            margin-top: 7px;
+        }
+        .menu_subclass>li:nth-child(1){
+            margin-top: 7px;
+        }
+        /* 只有menu下  menu_category 这里面的字加粗*/
+        .menu_category>li a {
+            font-weight: bold;
+        }
+        /* 移入li a背景色改变 */
+        .menu_list>ul>li:hover a{
+            background: lightgray;
+            color:black
+        }
+        .menu_list>ul>li:hover .icon{
+            color: black;
+        }
+    }
+    // 二级菜单
+    .menu_detail {
+        width: 716px;
+        height: 100%;
+        position: absolute;
+        left: 100%;
+        top: 0;
+        min-height: 469px;
+        background-position: top center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background: linear-gradient(to bottom, rgb(218, 125, 218) 0%, rgb(216, 68, 216) 4%, rgb(255, 0, 255) 100%);
+        /* warning */
+        display: none;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        box-shadow:$menu_detail_shadow;
+        .menu_detail_content {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            width: 620px;
+            height: 399px;
+            padding: 0 48px 10px;
+            >p{
+                width: 100%;
+                font-size: 18px;
+                font-weight: 400;
+                color: rgba(0,0,0,0.8);
+                margin-bottom: 17px;
+            }
+            >ul {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                li{
+                    margin-bottom: 17px;
+                    img{
+                        @include card_img(196px,110px);
+                    }
+                    .subbottom {
+                        @include card_subbottom(196px,36px);
+                        background: $container_bg_color;
+                    }
+                    .price {
+                        @include flex-setting(flex,space-between,center);
+                        span {
+                            @include card_span();
+                          }
+                          a {
+                            @include card_a();
+                          }
+                      }
+                    p{
+                        @include card_p();
+                    }
+                }
+            }
+            >a{
+               @include button_linear(618px,40px);
+            }
+        }
+    }
+    /* 鼠标移入menu_list ul时候 menu_detail要显示 */
+    // .menu_list:hover .menu_detail{
+    //     display: flex;
+    // }
+
+}
+
+

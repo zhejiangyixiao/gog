@@ -1,0 +1,100 @@
+
+p {
+    font-size: 12px;
+}
+a {
+    text-decoration: none;
+    color: #5D9A9D;
+}
+.container {
+    background: #1B2838;
+}
+/* 登录框样式 */
+.loginbox {
+    background: #16202D;
+    width: 616px;
+    height: 382px;
+    padding: 16px;
+    display: flex;
+    color: #C6D4DF;
+    /* 因为竖线div 这里设置相对定位 */
+    position: relative;
+}
+/* 登录框左半边 */
+.left {
+    flex: 1;
+
+}
+/* 两半部分的高度 */
+.loginbox_content ,.right_content{
+    height: 282px;
+}
+
+
+
+/* input设置 */
+.left input {
+    width: 263px;
+    height: 21px;
+    padding: 5px;
+    margin: 4px;
+    background: #121A24;
+    color: white;
+    font-size: 16px;
+    line-height: 21px;
+    border: 1px solid #000;
+    border-radius: 3px;
+    box-shadow: 1px 1px 0px #45556c;
+}
+/* 登录创建 标题字体颜色 */
+.left h2 ,.right h2 {
+    color: white;
+    font-size: 18px;
+    padding-bottom: 5px;
+    margin: 0 0 10px;
+    font-weight: normal;
+}
+
+/* 登录按钮的设置 */
+.btn {
+    padding: 0 15px;
+    font-size: 15px;
+    line-height: 30px;
+    border-radius: 2px;
+    display: block;
+    text-align: center;
+    font-size: 14px;
+    background: #274155;
+    width: 30px;
+    height: 30px;
+}
+/* 登录出错显示 平时隐藏 */
+.checkout_error{
+    display: none;
+}
+/* 登录框右半边 */
+.right {
+    flex: 1;
+    margin-left: 8px;
+}
+/* 注册按钮的设置 */
+.reg{
+    width: 78px;
+    height: 30px;
+    padding: 0 15px;
+    border-radius: 2px;
+    display: block;
+    font-size: 15px;
+    line-height: 30px;
+    background: #274155;
+}
+/* 中间的竖线 */
+.line {
+    background: #264959;
+    width: 1px;
+    height: 210px;
+    position: absolute;
+    left: 50%;
+    top: 16px;
+    margin-left: -8px;
+}

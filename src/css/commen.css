@@ -1,0 +1,504 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+ }
+ body {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     background: white;
+     
+ }
+ .container {
+     width: 100%;
+     min-height: 800px;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     background: #1B2838;
+     margin-top: 60px;
+ }
+ header {
+    width: 100%;
+    height: 56px;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 99;
+    top: 4px;
+    left: 0;
+}
+header::before{
+    position: absolute;
+    top: -4px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    content: '';
+    background: url(https://menu-static.gog-statics.com/assets/img/footer-border.jpg) center center;
+}
+footer {
+    width: 100%;
+    min-height: 239px;
+    background: #262626;
+}
+footer::after{
+    display: block;
+    width: 100%;
+    height: 4px;
+    content: '';
+    background: url(https://menu-static.gog-statics.com/assets/img/footer-border.jpg) center center;
+}
+/* 设置iconFont的 */
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: #ccc;
+}
+
+/* 头部与尾部 部分 */
+
+
+
+
+header nav {
+    width: 1060px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+/* nav 两个ul相同的部分 */
+header .nav_ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* nav左半边ul */
+/* 左半部分每个li */
+header .nav_left>li>a{
+    cursor: pointer;
+    padding-left: 17px;
+    padding-right: 29px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    width: 48px;
+    height: 56px;
+    position: relative;
+    font-size: 16px;
+}
+/* 第一个li logo的设置 */
+header .nav_left>li:nth-child(1) {
+    cursor: pointer;
+    padding-left: 0;
+    padding-right: 29px;
+    font-weight: normal;
+    
+}
+header .nav_left>li:nth-child(1)>a{
+    padding-left: 0;
+    padding-right: 0;
+    font-weight: normal;
+    background: white;
+    display: block;
+    color: #1A1A1A;
+    width: 32px;
+    height: 30px;
+    border-radius: 3px;
+    
+}
+header .nav_left>li .icon_login{
+    font-size: 32px;
+    margin-top: -1px;
+}
+/* nav右半边ul */
+header .nav_right>li {
+    cursor: pointer;
+    color: #ccc;
+    width: 18px;
+    height: 52px;
+    padding: 0 21px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* 设置icon图标大小 */
+header .nav_right>li .icon{
+    font-size: 26px;
+}
+/* 设置 span中的数字大小  */
+header .nav_right>li>span{
+    font-size: 12px;
+    padding: 0 4px;
+    position: absolute;
+    left: 34px;
+}
+header .nav_right>li:nth-child(1),header .nav_right>li:nth-child(2){
+    display: none;
+}
+/*>li移入时候的变化 字体变白色 */
+header .nav_left>li:hover>a{
+    color: white;
+}
+header .nav_left>li:nth-child(1):hover>a{
+    color: black;
+}
+header .nav_right>li:hover{
+    color: white;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* menu的设置 */
+/* 平时隐藏 鼠标移入的时候显示 */
+/* warning */
+.menu_list {
+    display: none;
+    background: white;
+    position: absolute;
+    left: 0;
+    top: 56px;
+    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 0px 15px 5px rgba(0,0,0,0.15);
+}
+/* 鼠标移入 的时候 menu_list显示 */
+header .nav_left>li:hover .menu_list {
+    display: block;
+    
+}
+/* menu 的父级定位 */
+header .nav_left>li{
+    position: relative;
+}
+
+/* menu 下的menu_category 和menu_promotion设置下边框 */
+.menu_category,.menu_promotion{
+    border-bottom: lightgray 1px solid;
+}
+/* div menu 设置三角形箭头 */
+.menu_list::before{
+    content: "";
+    position: absolute;
+    left: 48px;
+    top: -18px;
+    border: 9px white solid;
+    border-color: transparent transparent white transparent;
+    width: 0px;
+    height: 0px;
+}
+/* menu 下ul li 中 a 的设置 */
+.menu_list>ul>li a{
+    border-radius: 3px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 191px;
+    height: 17px;
+    padding: 5px 10px 5px 8px;
+    margin: 0 8px;
+    font-size: 14px;
+    color: #4c4c4c;
+}
+/* 设置ul底下边框的空白间隙 */
+.menu_promotion>li:nth-last-child(1){
+    margin-bottom: 8px;
+}
+.menu_category>li:nth-last-child(1){
+    margin-bottom: 8px;
+}
+.menu_subclass>li:nth-last-child(1){
+    margin-top: 8px;
+    padding-top: 7px;
+    border-top: 1px lightgray solid;
+    margin-bottom: 8px;
+}
+.menu_promotion>li:nth-child(1){
+    margin-top: 7px;
+}
+.menu_category>li:nth-child(1){
+    margin-top: 7px;
+}
+.menu_subclass>li:nth-child(1){
+    margin-top: 7px;
+}
+/* menu li 中 箭头的设置 */
+.menu_list>ul>li .icon{
+    font-size: 14px;
+    color:lightgray;
+}
+/* 移入li a背景色改变 */
+.menu_list>ul>li:hover a{
+    background: lightgray;
+    color:black
+}
+.menu_list>ul>li:hover .icon{
+    color: black;
+}
+/* 只有menu下  menu_category 这里面的字加粗*/
+.menu_category>li a {
+    font-weight: bold;
+}
+/* ------------------------------------------------------------------------------------------------------------------------------------------------------------------ */
+/* 鼠标移入menu_list ul时候 menu_detail要显示 */
+.menu_list:hover .menu_detail{
+    display: flex;
+}
+.menu_detail {
+    width: 716px;
+    height: 100%;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    min-height: 469px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background: linear-gradient(to bottom, rgba(204,24,204,0.5) 0%, rgba(204,24,204,0.5) 4%, rgba(217,0,217,0.8) 100%);
+    /* warning */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.25), 0 1px 3px rgba(0,0,0,0.3);
+}
+
+/* .menu_detail中的内容设置 */
+/* 头部 */
+.menu_detail .menu_detail_content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 620px;
+    height: 399px;
+    padding: 0 48px 10px;
+}
+.menu_detail .menu_detail_content>p{
+    width: 100%;
+    font-size: 18px;
+    font-weight: 400;
+    color: rgba(0,0,0,0.8);
+    margin-bottom: 17px;
+}
+.menu_detail .menu_detail_content>ul {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+/* li的下边距 */
+.menu_detail .menu_detail_content>ul li{
+    margin-bottom: 17px;
+}
+/* 图片 */
+.menu_detail .menu_detail_content>ul li img{
+    display: block;
+    width: 196px;
+    height: 110px;
+    background: lightpink;
+}
+/* subbottom 部分设置 */
+.menu_detail .menu_detail_content>ul li .subbottom{
+    width: 186px;
+    height: 36px;
+    padding-left: 10px;
+    background: #E1E1E1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 每个li的底部右半边 */
+.menu_detail .menu_detail_content>ul li .subbottom .price{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/* 折扣 */
+.menu_detail .menu_detail_content>ul li .subbottom .price span {
+    height: 23px;
+    padding: 0 .5em;
+    border-radius: 2px;
+    font-size: 12px;
+    line-height: 21px;
+    color: #f2f2f2;
+    background: #788795;
+}
+/* 价格 */
+.menu_detail .menu_detail_content>ul li .subbottom .price a{
+    bottom: 7px;
+    top: auto;
+    right: 6px;
+    margin: 0;
+    box-sizing: border-box;
+    height: 23px;
+    padding: 0 .8em;
+    font-size: 12px;
+    font-weight: 600;
+    text-transform: none;
+    text-align: center;
+    cursor: pointer;
+    line-height: 22px;
+    border: 1px solid #a6a6a6;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px -1px rgba(0,0,0,0.25);
+    color: #686868;
+    margin: 0 5px;
+
+}
+/* 按钮 */
+.menu_detail .menu_detail_content>a{
+    width: 618px;
+    height: 40px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.25), 0 1px 3px rgba(0,0,0,0.3);
+    padding: 0 10px;
+    text-align: center;
+    border-radius: 3px;
+    box-sizing: border-box;
+    height: 40px;
+    margin-top: 17px;
+    margin-right: 2px;
+    line-height: 40px;
+    font-weight: 400;
+    background: linear-gradient(to bottom, rgba(204,204,204,0.2) 0%, rgba(204,204,204,0.2) 4%, rgba(217,217,217,0.2) 100%);
+    color: #4c4c4c;
+}
+
+.footer_top {
+    display: flex;
+    padding: 17px;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1094px;
+    margin: 0 auto;
+}
+.footer_top ul {
+    font-size: 14px;
+    display: flex;
+    line-height: 24px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.footer_top ul li a {
+    margin-right: 16px;
+    transition: .2s;
+    color: #ddd;
+    cursor: pointer;
+}
+.footer_top ul li a:hover {
+    color: #fff;
+}
+.footer_top div a {
+    margin: 0 5px;
+}
+.footer_top div a:hover .icon{
+    color: rgb(97, 97, 231);
+}
+
+
+.footer_middle {
+    background: #2F2F2F;
+    box-shadow: 0 0 8px 0 rgba(17,17,17,0.24);
+    min-height: 94px;
+}
+.footer_middle_content {
+    display: flex;
+    padding: 18px 15px 0;
+    color: rgba(255,255,255,0.43);
+
+    width: 100%;
+    max-width: 1094px;
+    margin: 0 auto;
+
+}
+.footer_middle_content div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 60px;
+    position: relative;
+}
+.footer_middle_content div a {
+    width: 47px;
+    height: 58px;
+    position: absolute;
+    left: -60px;
+    font-size: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.footer_middle_content div a .icon {
+    font-size: 57px;
+}
+.footer_middle_content div ul{
+    display: flex;
+    /* justify-content: space-around; */
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+    line-height: 18px;
+}
+.footer_middle_content div ul li:hover{
+
+    transition: .2s;
+    color: white;
+}
+.footer_middle_content div ul li {
+    cursor: pointer;
+    margin-right: 10px;
+}
+.footer_middle_content div ul li:nth-child(1){
+    margin-right: 30px;
+}
+
+.footer_bottom {
+    padding: 0 17px 0 9px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    color: rgba(255,255,255,0.43);
+    font-size: 12px;
+    width: 100%;
+    max-width: 1094px;
+    margin: 0 auto;
+}
+.footer_bottom>div {
+    margin: 25px 0;
+}
+.footer_bottom div:nth-child(1) ul{
+    display: flex;
+}
+.footer_bottom div:nth-child(1) ul li a{
+
+    display: block;
+    margin: 0 8px 9px;
+    transition: .2s;
+}
+.footer_bottom div:nth-child(1) ul li a:hover{
+
+    color: white;
+}
+.footer_bottom div:nth-child(2) {
+    display: flex;
+    align-items: center;
+    line-height: 58px;
+}
+.projekt_logo {
+    display: inline-block;
+    width: 85px;
+    height: 44px;
+    margin: 0 7px 0 9px;
+    color: transparent;
+    background: url(https://menu-static.gog-statics.com/assets/img/cdprojekt-logo.svg) center center;
+    background-size: 100%;
+    font-size: 0;
+}

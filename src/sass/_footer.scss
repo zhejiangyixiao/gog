@@ -1,0 +1,157 @@
+@charset "utf-8";
+@import "mixin";
+@import "var";
+
+
+footer {
+    width: 100%;
+    background: $footer_bg_color;
+    &::after{
+        display: block;
+        width: 100%;
+        height: 4px;
+        content: '';
+        background: url(https://menu-static.gog-statics.com/assets/img/footer-border.jpg) center center;
+    }
+}
+.footer_top {
+    @include flex-setting(flex,space-between,flex-start);
+    padding: 17px;
+    width: 100%;
+    max-width: 1094px;
+    margin: 0 auto;
+    ul {
+        @include flex-setting(flex,space-between,flex-start);
+        font-size: 14px;
+        line-height: 24px;
+        flex-wrap: wrap;
+        li a {
+            margin-right: 16px;
+            transition: .2s;
+            color: #ddd;
+            cursor: pointer;
+            &:hover {
+                color: #fff;
+            }
+        }
+    }
+    div a {
+        margin: 0 5px;
+        &:hover  .icon{
+            color: rgb(97, 97, 231);
+        }
+    }
+}
+.footer_middle {
+    background: $footer_middle_bg_color;
+    box-shadow:$footer_middle_shadow;
+    min-height: 94px;
+}
+
+.footer_middle_content {
+    display: flex;
+    padding: 18px 15px 0;
+    color: rgba(255,255,255,0.43);
+    width: 100%;
+    max-width: 1094px;
+    margin: 0 auto;
+    div {
+        @include flex-setting(flex,center,flex-start);
+
+        flex-direction: column;
+        margin-left: 60px;
+        position: relative;
+        a {
+            @include flex-setting();
+            flex-direction: column;
+
+            width: 47px;
+            height: 58px;
+            position: absolute;
+            left: -60px;
+            font-size: 8px;
+            .icon {
+                font-size: 57px;
+            }
+        }
+        ul{
+            display: flex;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            font-size: 12px;
+            line-height: 18px;
+            li {
+                cursor: pointer;
+                margin-right: 10px;
+                &:hover{
+
+                    transition: .2s;
+                    color: white;
+                }
+                &:nth-child(1){
+                    margin-right: 30px;
+                }
+            }
+            
+        }
+    }
+
+}
+
+
+.footer_bottom {
+    padding: 0 17px 0 9px;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    color: rgba(255,255,255,0.43);
+    font-size: 12px;
+    max-width: $content_width;
+    margin: 0 auto;
+    >div {
+        margin: 25px 0;
+        &:nth-child(1) ul{
+            display: flex;
+            li a{
+
+                display: block;
+                margin: 0 8px 9px;
+                transition: .2s;
+            }
+            li a:hover{
+
+                color: white;
+            }
+        }
+        &:nth-child(2) {
+            display: flex;
+            align-items: center;
+            line-height: 58px;
+        }
+    }
+}
+.projekt_logo {
+    display: inline-block;
+    width: 85px;
+    height: 44px;
+    margin: 0 7px 7px 9px;
+    color: transparent;
+    background: url(https://menu-static.gog-statics.com/assets/img/cdprojekt-logo.svg) no-repeat center center;
+    background-size: 100%;
+    font-size: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

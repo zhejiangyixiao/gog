@@ -1,0 +1,466 @@
+<!--
+ * @Author: yixiao
+ * @Date: 2020-07-24 19:57:49
+ * @LastEditors: yixiao
+ * @LastEditTime: 2020-07-26 21:51:54
+ * @FilePath: \jsc:\Users\86182\Desktop\gog\src\detail.html
+--> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>详情页</title>
+    <link rel="stylesheet" href="./css/commen.css">
+    <link rel="stylesheet" href="./css/detail.css">
+    <script src="js/require.js" defer async="true" data-main="js/main" id="currentpage" currentmod="moddetail"></script>
+
+</head>
+<body>
+    <!-- 头部 -->
+    <header>
+        <nav>
+            <ul class="nav_left nav_ul">
+                <li>
+                    <a href="javascript:;">
+                        <svg class="icon icon_login" aria-hidden="true">
+                            <use xlink:href="#icon-cib-gog-com"></use>
+                        </svg>
+                    </a>
+                </li>
+                <li><a>
+                        商店
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-arrow"></use>
+                        </svg>
+                    </a>
+                    <div class="menu_list">
+                        <!-- menu_promotion通过接口显示当前促销的游戏，有数据显示，无数据隐藏 -->
+                        <ul class="menu_promotion" style="display: none;"></ul>
+                        <!-- 三个大类 -->
+                        <ul class="menu_category">
+                            <li>
+                                <a href="#">最新发布
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">畅销商品
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">正在打折
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- 细分的小类 -->
+                        <ul class="menu_subclass">
+                            <li>
+                                <a href="">
+                                    动作
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    冒险
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    独立
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    角色扮演
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    射击
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    模拟
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    体育与竞速
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    策略
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    为玩家提供的影片
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="">
+                                    浏览所有的游戏
+                                    <svg class="icon" aria-hidden="true">
+                                        <use xlink:href="#icon-col-left"></use>
+                                    </svg>
+                                </a>
+                            </li>
+                        </ul>
+                        <!-- 鼠标移入menu 弹出的div 显示分类中的具体内容  -->
+                        <!-- 需要渲染 -->
+                        <div class="menu_detail">
+                            <div class="menu_detail_content">
+                                <p>最新发布</p>
+                                <ul>
+                                    <li>
+                                        <img src="" alt="">
+                                        <div class="subbottom">
+                                            <div class="sys">□</div>
+
+                                            <div class="price">
+                                                <span>-90%</span>
+                                                <a href="javascript:;">¥5.00</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <img src="" alt="">
+                                        <div class="subbottom">
+                                            <div class="sys">□</div>
+
+                                            <div class="price">
+                                                <span>-90%</span>
+                                                <a href="javascript:;">¥5.00</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <img src="" alt="">
+                                        <div class="subbottom">
+                                            <div class="sys">□</div>
+
+                                            <div class="price">
+                                                <span>-90%</span>
+                                                <a href="javascript:;">¥5.00</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <img src="" alt="">
+                                        <div class="subbottom">
+                                            <div class="sys">□</div>
+
+                                            <div class="price">
+                                                <span>-90%</span>
+                                                <a href="javascript:;">¥5.00</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <img src="" alt="">
+                                        <div class="subbottom">
+                                            <div class="sys">□</div>
+
+                                            <div class="price">
+                                                <span>-90%</span>
+                                                <a href="javascript:;">¥5.00</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <img src="" alt="">
+                                        <div class="subbottom">
+                                            <div class="sys">□</div>
+
+                                            <div class="price">
+                                                <span>-90%</span>
+                                                <a href="javascript:;">¥5.00</a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <a href="javascript:;">浏览所有<span>最新发布</span>的游戏</a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+                <li><a>
+                        关于
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-arrow"></use>
+                        </svg>
+                    </a>
+                    <div class="menu_list">
+                        <ul>
+                            <li><a href="">GOG.com</a></li>
+                            <li><a href="">GOG Galaxy</a></li>
+                        </ul>
+                        <ul style="border-top: 1px solid lightgray;">
+                            <li><a href="">加入团队</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a>
+                        社区
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-arrow"></use>
+                        </svg>
+                    </a>
+                    <div class="menu_list">
+                        <ul>
+                            <li><a href="">所有论坛</a></li>
+                            <li><a href="">中文讨论论坛</a></li>
+                            <li><a href="">论坛回复</a></li>
+                            <li><a href="">社区愿望单</a></li>
+
+                        </ul>
+                        <ul style="border-top: 1px solid lightgray;">
+                            <li><a href="">Facebook</a></li>
+                            <li><a href="">Twitch</a></li>
+                            <li><a href="">Twitter</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+                <li><a>
+                        支持
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-arrow"></use>
+                        </svg>
+                    </a>
+                    <div class="menu_list">
+                        <ul>
+                            <li><a href="">游戏技术问题</a></li>
+                            <li><a href="">订单和支付</a></li>
+                            <li><a href="">账户和网站</a></li>
+                            <li><a href="">下载</a></li>
+                            <li><a href="">GOG Galaxy</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li style="display: none;">
+                    <a>
+                        登录
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-arrow"></use>
+                        </svg>
+                    </a>
+                    <div class="menu_list">
+                        <ul>
+                            <li><a href="./registry.html">创建</a></li>
+                            <li><a href="./login.html">登录</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+            <ul class="nav_right nav_ul">
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-ring"></use>
+                    </svg>
+                    <span>0</span>
+
+                </li>
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-pengyou"></use>
+                    </svg>
+                    <span>0</span>
+                </li>
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-gouwuche"></use>
+                    </svg>
+                    <span>0</span>
+                </li>
+                <li>
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-sousuo"></use>
+                    </svg>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <div class="bg">
+
+    </div>
+    <div class="container">
+        <div class="content">
+            <div class="header">
+                <img src="https://images.gog-statics.com/ba0218c64c6ba626d8c9105aaabce710d92d26a40da455cbf503e0e7452cc361_product_card_v2_logo_480x285.png" alt="">
+                <div class="card">
+                    <div class="price">
+                        <span>-25%</span>
+                        <span><s>¥116</s></span>
+                        <span>¥87</span>
+                    </div>
+                    <button>立即付款</button>
+                    <button>
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-star_full"></use>
+                          </svg>加入愿望单
+                    </button>
+                </div>
+                <div class="title">
+                    <h1>Disco Elysium</h1>
+                    <div>
+                        <span>星4.5/5</span>
+                        <span>口</span>
+                        <span style="border: none;">中文(简体),English</span>
+                    </div>
+                </div>
+            </div>
+            <!-- banner -->
+            <div class="content_banner">
+                此处是轮播图
+            </div>
+            <div class="detail_game">
+                <div class="left">
+                    这里是游戏介绍
+                </div>
+                <div class="right">
+                    这里是游戏详情
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- 底部 -->
+    <footer>
+        <div class="footer_top">
+            <ul>
+                <li><a>
+                        兑换代码
+                    </a></li>
+                <li><a>
+                        重新兑换您的游戏
+                    </a></li>
+                <li><a>
+                        GOG Connect
+                    </a></li>
+                <li><a>
+                        联系我们
+                    </a></li>
+                <li><a>
+                        职业发展机会
+                    </a></li>
+                <li><a>
+                        提交您的游戏
+                    </a></li>
+            </ul>
+            <div>
+                <a target="_blank" href="https://facebook.com/gogcom">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-facebook"></use>
+                    </svg>
+                </a>
+                <a target="_blank" href="https://twitter.com/gogcom">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-twitter"></use>
+                    </svg>
+                </a>
+                <a target="_blank" href="http://www.twitch.tv/gogcom">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-twitch"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        <div class="footer_middle">
+            <div class="footer_middle_content">
+                <div>
+                    <a href="javascript:;">
+                        <svg class="icon " aria-hidden="true">
+                            <use xlink:href="#icon-cib-gog-com"></use>
+                        </svg>
+                        GOG.COM
+                    </a>
+                    <ul>
+                        <li>语言:</li>
+                        <li>English</li>
+                        <li>Deutsch</li>
+                        <li>Français</li>
+                        <li>Polski</li>
+                        <li>Pусский</li>
+                        <li>中文(简体)</li>
+                    </ul>
+                    <ul>
+                        <li>货币:</li>
+                        <li>CNY</li>
+                        <li>USD</li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="footer_bottom">
+            <div>
+                <ul>
+                    <li><a href="https://support.gog.com/hc/categories/201526109?product=gog">
+                            法律
+                        </a>
+                    </li>
+                    <li><a href="https://support.gog.com/hc/articles/212632109-Privacy-Policy?product=gog">
+                            隐私政策
+                        </a>
+                    </li>
+                    <li><a href="/thanks">
+                            鸣谢
+                        </a>
+                    </li>
+                </ul>
+                <div>
+                    © GOG sp. z o.o.保留所有权利。属于[]集团。所有商标和注册商标均为各自所有者的财产
+                </div>
+            </div>
+            <div>
+                <a class="projekt_logo" href="https://www.cdprojekt.com/">
+                    CD PROJEKT
+                </a>
+                集团的一部分。
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

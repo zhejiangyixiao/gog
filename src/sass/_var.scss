@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+
+$content_width:1096px;//中心的宽度
+$banner_img_height:460px;//banner img_height
+
+
+
+$bgcolor:rgb(216, 216, 216);//container的背景色 
+$header_bg_color:rgba(0, 0, 0, 0.8);
+$footer_bg_color:#262626;
+$footer_middle_bg_color:#2F2F2F;
+$container_bg_color:#D8D8D8;
+$color_grey :grey;
+$color_purple:purple;
+$text_a_color :#4c4c4c;
+
+
+
+
+
+
+
+
+$header_z_index:99;//header index
+
+
+
+$footer_middle_shadow:0 0 8px 0 rgba(17,17,17,0.24);
+$menu_box_shadow: 0px 1px 3px 0px rgba(0,0,0,0.1), 0px 0px 15px 5px rgba(0,0,0,0.15);
+$menu_detail_shadow:0 0 0 1px rgba(0,0,0,0.25), 0 1px 3px rgba(0,0,0,0.3);

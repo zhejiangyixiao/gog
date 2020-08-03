@@ -1,0 +1,27 @@
+@charset "utf-8";
+@import "var";
+@import "mixin";
+
+
+.tips {
+    width: 100%;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+    border-color: $color_grey;
+    border-image: initial;
+    border-width: 1px 0px;
+    > div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 30px;
+        font-size: 14px;
+        padding: 5px 20px;
+      }
+      .tips_left {
+        border-right: 1px solid $color_grey;
+      }
+  }

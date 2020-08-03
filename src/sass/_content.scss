@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+@import "var";
+@import "mixin";
+
+
+// 中间部分的通用设置
+.container {//中间部分
+    @include flex-setting(flex ,center , flex-start);
+    margin-top: 58px;
+    background: $bgcolor;
+    overflow: hidden;
+    background: $container_bg_color;
+    .content {//版心部分
+        width: $content_width;
+        // 设置title类 小标题中的一些公共设置
+        .title {//标题
+            @include  title_setting();
+            .icon {//图标
+                margin-right: 4px;
+                width: 16px;
+                height: 16px;
+                fill: rgb(64, 64, 64);
+            }
+          }
+      }
+  }

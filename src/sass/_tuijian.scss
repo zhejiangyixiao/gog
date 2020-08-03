@@ -1,0 +1,32 @@
+
+@charset "utf-8";
+@import "var";
+@import "mixin";
+
+.tuijian {
+    @include flex-setting(flex,space-between,center);
+    width: 100%;
+    padding-bottom: 18px;
+    li {
+        background: rgb(236, 236, 236);
+        img {
+            @include card_img(256px,117px);
+          }
+        p {
+            @include card_p();
+        }
+        .subbottom {
+            @include card_subbottom(246px,36px);
+          }
+      }
+      .price {
+        @include flex-setting(flex,space-between,center);
+
+        span {
+            @include card_span();
+          }
+          a {
+            @include card_a();
+          }
+      }  
+  }

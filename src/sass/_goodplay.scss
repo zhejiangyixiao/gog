@@ -1,0 +1,76 @@
+@charset "utf-8";
+@import "var";
+@import "mixin";
+.play_title {
+    padding-top: 36px;
+  }
+.custom {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 426px;
+    padding-bottom: 24px;
+  }
+  
+.custom_left {
+    width: 48%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background: rgb(236, 236, 236);
+    img {
+        @include card_img(100%,342px);
+      }
+    p{
+        @include card_p();
+      }
+    .subbottom {
+        @include card_subbottom(100%,36px);
+      }
+      .price {
+        @include flex-setting(flex,space-between,center);
+        span {
+            @include card_span();
+          }
+          a {
+            @include card_a();
+          }
+      }
+  }
+
+  .custom_right {
+    width: 48%;
+    height: 100%;
+    @include flex-setting(flex,space-between,flex-start);
+    flex-wrap: wrap;
+    li {
+        width: 48%;
+        height: 47%;
+        background: rgb(236, 236, 236);
+
+        &:nth-child(3), &:nth-child(4){
+            align-self: flex-end;
+        }
+
+        .subbottom {
+            @include card_subbottom(100%,36px);
+        }
+        .price {
+            @include flex-setting(flex,space-between,center);
+            span {
+                @include card_span();
+              }
+              a {
+                @include card_a();
+              }
+          }
+        p{
+            @include card_p();
+        }
+        img {
+            @include card_img(100%,116px);
+          }
+      }
+  }
+
+  

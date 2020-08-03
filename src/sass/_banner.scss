@@ -1,0 +1,110 @@
+@charset "utf-8";
+@import "var";
+@import "mixin";
+
+.banner {
+    position: relative;
+    height: 510px;
+    // 左蒙版
+    .slider_hover_left {
+        width: 1096px;
+        height: 460px;
+        opacity: 0.5;
+        position: absolute;
+        left: 0px;
+        z-index: 10;
+        cursor: pointer;
+        background: white;
+      }
+    //   右蒙版
+      .slider_hover_right{
+          @extend .slider_hover_left;
+      }
+    //   左右箭头
+      .showpicbox a {
+        position: absolute;
+        z-index: 10;
+        width: 35px;
+        height: 35px;
+        line-height: 42px;
+        text-align: center;
+        top: 210px;
+        background: rgb(97, 97, 97);
+        border-radius: 50%;
+        border-width: 5px;
+        border-style: solid;
+        border-color: rgb(216, 216, 216);
+        border-image: initial;
+        // 左箭头
+        &:nth-child(1){
+            left: -45px;
+        }
+        // 右箭头
+        &:nth-child(2) {
+            left: 1096px;
+          }
+        //   箭头的图标
+          .icon {
+            font-size: 30px;
+          }
+      }
+    
+
+}
+//   装图片的div
+.glide_track {
+    @include flex-setting(flex,space-between,center);
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    img{
+        width: $content_width;
+        height: $banner_img_height;
+        margin-right: 10px;
+    }
+    
+  }
+
+
+  .slider_btn {
+    position: absolute;
+    left: 0px;
+    bottom: 0px;
+    @include flex-setting();
+    width: 100%;
+    height: 41px;
+    ul {
+        @include flex-setting();
+        height: 100%;
+        li {
+            width: 41px;
+            height: 100%;
+            cursor: pointer;
+            @include flex-setting();
+            margin: auto 5px;
+            border-radius: 2px;
+            span{
+                width: 100%;
+                height: 1px;
+                @include flex-setting(flex,flex-start,center);
+                background: black;
+                a {
+                    width: 0px;
+                    height: 3px;
+                    display: none;
+                    background: $color_purple;
+                  }
+            }
+            .active {
+                width: 100%;
+                height: 3px;
+                border-width: 1px;
+                border-style: solid;
+                border-color: $color_purple;
+                border-image: initial;
+                background: transparent;
+              }
+          }
+      }
+
+  }
