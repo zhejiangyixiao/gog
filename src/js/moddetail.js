@@ -1,4 +1,4 @@
-define([], function(require, factory) {
+define([], function() {
     return {
         init(){
             

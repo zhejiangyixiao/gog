@@ -1,4 +1,4 @@
-define(['modindex'], function () {
+define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../../node_modules/jquery.cookie/jquery.cookie'], function () {
 
     // 惰性单例
     let sortmenu = (function () {
@@ -42,13 +42,13 @@ define(['modindex'], function () {
                         _this.inputcheck = $(this).find('input').val();
                     }
                     $(this).parent().hide();
-                    
+
                     ren.getData(_this.inputcheck);
                 });
                 return false;
             });
 
-            $(document).click(function(){
+            $(document).click(function () {
                 console.log('document-click');
                 $('.menu_create').hide();
             });
@@ -58,48 +58,107 @@ define(['modindex'], function () {
     class CarBtn {
         constructor() {
             this.lists = $('.prolist li');
+            this.arrsid = [];
         }
         init() {
             let _this = this;
+            this.cookietoarray();
+            if(this.arrsid.length>0){
+                $.each(this.lists,(index,value)=>{
+                    let sid = $(value).find('a').attr('data-flag');
+                    if ($.inArray(sid, _this.arrsid) !== -1) {
+                        $(value).find('span').show().siblings('.icon').hide();
+                        $(value).find('a').css({ display: 'flex' });
+                    }
+                })
+            }
             this.lists.on('mouseover', function () {
+
                 $(this).find('a').css({ display: 'flex' });
+
+                let sid = $(this).find('a').attr('data-flag');
+                if ($.inArray(sid, _this.arrsid) !== -1) {
+                    $(this).find('span').show().siblings('.icon').hide();
+                }
             });
             this.lists.on('mouseout', function () {
-                $(this).find('a').css({ display: 'none' });
+                let sid = $(this).find('a').attr('data-flag');
+
+                if ($.inArray(sid, _this.arrsid) === -1) {
+                    $(this).find('a').css({ display: 'none' });
+                }
             });
-            console.log('1111');
-            this.lists.on('click',function(){
-                location.href=`http://localhost/gog/src/detail.html?sid=${$(this).find('a').attr('data-flag')}`;
+
+            this.lists.on('click', function () {
+                location.href = `http://localhost/gog/src/detail.html?sid=${$(this).find('a').attr('data-flag')}`;
                 return false;
             });
-            this.lists.on('click','a',()=>{
+            this.lists.on('click', 'a', function () {
+                let sid = $(this).attr('data-flag');
                 
+                if ($.inArray(sid, _this.arrsid) === -1) {
+                    _this.arrsid.push(sid);
+                    $.cookie('cookiesid', _this.arrsid, {
+                        expires: 7,
+                        path: '/'
+                    });
+                    $(this).find('span').show().siblings('.icon').hide();
+
+                } else {
+                    $.removeCookie('cookiesid');
+                    _this.arrsid.splice($.inArray(sid, _this.arrsid), 1);
+                    console.log(sid);
+                    console.log(_this.arrsid);
+                    $.cookie('cookiesid', _this.arrsid, {
+                        expires: 7,
+                        path: '/'
+                    });
+                    $(this).find('span').hide().siblings('.icon').show();
+                }
+
+
+
+
+
                 return false;
             });
+        }
+        cookietoarray() {
+            if ($.cookie('cookiesid')) { //cookie存在
+                this.arrsid = $.cookie('cookiesid').split(',');
+            } else {
+                this.arrsid = [];
+            }
         }
     }
 
-    class Render{
-        constructor(){
+    class Render {
+        constructor() {
             this.ul = $('.prolist');
         }
-        init(){
+        init() {
+
             this.getData('3');
         }
-        getData(inputcheck){
-            
+        getData(inputcheck) {
+            let arrsid = [];
+            if ($.cookie('cookiesid')) { //cookie存在
+                arrsid = $.cookie('cookiesid').split(',');
+            } else {
+                arrsid = [];
+            }
             $.ajax({
                 url: 'http://localhost/gog/php/result.php',
                 dataType: 'json',
-                method:'post',
-                data:{
-                    getlist:inputcheck
+                method: 'post',
+                data: {
+                    getlist: inputcheck
                 }
-            }).done(msg=>{
+            }).done(msg => {
                 let strhtml = '';
-                $.each(msg, function(index, value) {
+                $.each(msg, function (index, value) {
 
-                    if(value.zhekou === '0'){
+                    if (value.zhekou === '0') {
                         strhtml += `
                         <li>
                         <div class="pro_left">
@@ -117,6 +176,7 @@ define(['modindex'], function () {
                             </div>
                             
                             <a href="javascript:;" data-flag="${value.sid}">
+                                <span>√</span>
                                 <svg class="icon" aria-hidden="true">
                                     <use xlink:href="#icon-gouwuche"></use>
                                 </svg>
@@ -124,7 +184,7 @@ define(['modindex'], function () {
                         </div>
                     </li>
                             `;
-                    }else{
+                    } else {
                         strhtml += `
                         <li>
                         <div class="pro_left">
@@ -139,11 +199,12 @@ define(['modindex'], function () {
                         <div class="pro_right">
                             <div>
                                 <p class="zhekou">-${value.zhekou}%</p>
-                                <p class="yuanjia"><s>￥${parseInt(value.price/(value.zhekou/100))}</s></p>
+                                <p class="yuanjia"><s>￥${parseInt(value.price / (value.zhekou / 100))}</s></p>
                                 <p>¥${value.price}</p>
                             </div>
                             
                             <a href="javascript:;" data-flag="${value.sid}">
+                                <span>√</span>
                                 <svg class="icon" aria-hidden="true">
                                     <use xlink:href="#icon-gouwuche"></use>
                                 </svg>
@@ -152,29 +213,32 @@ define(['modindex'], function () {
                     </li>
                             `;
                     }
-                    
-                    
                 });
 
                 this.ul.html(strhtml);
-                $(function() {
+
+                $(function () {
                     $("img.lazy").lazyload({ effect: "fadeIn" });
                 });
                 new CarBtn().init();
             });
         }
     }
-    
+
     let ren = new Render();
     let sbtn = new SortBtn(sortmenu);
+
+
+
+
     ren.init();
     sbtn.init();
-  
-  
+
+
 
     return {
         init() {
-            
+
         }
     }
 
