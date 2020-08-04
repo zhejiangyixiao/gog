@@ -15,6 +15,7 @@
   "dependencies": {
     "jquery": "^3.5.1",
     "jquery-lazyload": "^1.9.7",
-    "jquery.cookie": "^1.4.1"
+    "jquery.cookie": "^1.4.1",
+    "jquery.pagination": "^0.1.5"
   }
 }

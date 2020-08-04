@@ -159,3 +159,28 @@
 .pro_right a span {
     display: none;
 }
+
+.row{
+    display: flex;
+    justify-content: center;
+    margin: 18px 0;
+}
+.row li {
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    border: 1px solid black;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 8px;
+    cursor: pointer;
+}
+
+
+
+
+
+
+

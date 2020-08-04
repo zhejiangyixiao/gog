@@ -1,4 +1,4 @@
-define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../../node_modules/jquery.cookie/jquery.cookie'], function () {
+define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../../node_modules/jquery.cookie/jquery.cookie',], function () {
 
     // 惰性单例
     let sortmenu = (function () {
@@ -63,8 +63,8 @@ define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../..
         init() {
             let _this = this;
             this.cookietoarray();
-            if(this.arrsid.length>0){
-                $.each(this.lists,(index,value)=>{
+            if (this.arrsid.length > 0) {
+                $.each(this.lists, (index, value) => {
                     let sid = $(value).find('a').attr('data-flag');
                     if ($.inArray(sid, _this.arrsid) !== -1) {
                         $(value).find('span').show().siblings('.icon').hide();
@@ -95,7 +95,7 @@ define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../..
             });
             this.lists.on('click', 'a', function () {
                 let sid = $(this).attr('data-flag');
-                
+
                 if ($.inArray(sid, _this.arrsid) === -1) {
                     _this.arrsid.push(sid);
                     $.cookie('cookiesid', _this.arrsid, {
@@ -135,10 +135,12 @@ define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../..
     class Render {
         constructor() {
             this.ul = $('.prolist');
+            this.msg = null;
         }
         init() {
 
             this.getData('3');
+
         }
         getData(inputcheck) {
             let arrsid = [];
@@ -155,72 +157,106 @@ define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../..
                     getlist: inputcheck
                 }
             }).done(msg => {
-                let strhtml = '';
-                $.each(msg, function (index, value) {
+                const counst = 10;//一页显示的数据
+                this.renderpagebtn(msg,counst);
+                
+                this.msg = msg;
+                
+                this.pagebtnclick(counst);
+                
+                this.renderli(msg.slice(0,counst));
+                
+            });
+        }
+        renderpagebtn(msg,counst) {
+            $('.row').html('');
+            let page = Math.ceil(msg.length / counst);
+            let arr = [];
+            arr[page-1] = '1';
+            let strhtml = '<li class="first">&lt;</li>';
+            $.each(arr,function(index,value){
+                strhtml += `<li class="item">${index+1}</li>`
+            });
+            strhtml += '<li>&gt;</li>';
+            $('.row').html(strhtml);
 
-                    if (value.zhekou === '0') {
-                        strhtml += `
-                        <li>
-                        <div class="pro_left">
+        }
+        renderli(msg) {
+            let strhtml = '';
+            $.each(msg, function (index, value) {
+
+                if (value.zhekou === '0') {
+                    strhtml += `
+                    <li>
+                    <div class="pro_left">
+                    <img data-original="${value.url}" alt="" class="lazy" width="136" height="76">
+                        <div>
+                            <div class="game_title">
+                                ${value.title}
+                            </div>
+                            <div class="sys">${value.system}</div>
+                        </div>
+                    </div>
+                    <div class="pro_right">
+                        <div>
+                            <p>¥${value.price}</p>
+                        </div>
+                        
+                        <a href="javascript:;" data-flag="${value.sid}">
+                            <span>√</span>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-gouwuche"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </li>
+                        `;
+                } else {
+                    strhtml += `
+                    <li>
+                    <div class="pro_left">
                         <img data-original="${value.url}" alt="" class="lazy" width="136" height="76">
-                            <div>
-                                <div class="game_title">
-                                    ${value.title}
-                                </div>
-                                <div class="sys">${value.system}</div>
+                        <div>
+                            <div class="game_title">
+                                ${value.title}
                             </div>
+                            <div class="sys">${value.system}</div>
                         </div>
-                        <div class="pro_right">
-                            <div>
-                                <p>¥${value.price}</p>
-                            </div>
-                            
-                            <a href="javascript:;" data-flag="${value.sid}">
-                                <span>√</span>
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-gouwuche"></use>
-                                </svg>
-                            </a>
+                    </div>
+                    <div class="pro_right">
+                        <div>
+                            <p class="zhekou">-${value.zhekou}%</p>
+                            <p class="yuanjia"><s>￥${parseInt(value.price / (value.zhekou / 100))}</s></p>
+                            <p>¥${value.price}</p>
                         </div>
-                    </li>
-                            `;
-                    } else {
-                        strhtml += `
-                        <li>
-                        <div class="pro_left">
-                            <img data-original="${value.url}" alt="" class="lazy" width="136" height="76">
-                            <div>
-                                <div class="game_title">
-                                    ${value.title}
-                                </div>
-                                <div class="sys">${value.system}</div>
-                            </div>
-                        </div>
-                        <div class="pro_right">
-                            <div>
-                                <p class="zhekou">-${value.zhekou}%</p>
-                                <p class="yuanjia"><s>￥${parseInt(value.price / (value.zhekou / 100))}</s></p>
-                                <p>¥${value.price}</p>
-                            </div>
-                            
-                            <a href="javascript:;" data-flag="${value.sid}">
-                                <span>√</span>
-                                <svg class="icon" aria-hidden="true">
-                                    <use xlink:href="#icon-gouwuche"></use>
-                                </svg>
-                            </a>
-                        </div>
-                    </li>
-                            `;
-                    }
-                });
-
-                this.ul.html(strhtml);
-
-                $(function () {
-                    $("img.lazy").lazyload({ effect: "fadeIn" });
-                });
-                new CarBtn().init();
+                        
+                        <a href="javascript:;" data-flag="${value.sid}">
+                            <span>√</span>
+                            <svg class="icon" aria-hidden="true">
+                                <use xlink:href="#icon-gouwuche"></use>
+                            </svg>
+                        </a>
+                    </div>
+                </li>
+                        `;
+                }
+            });
+            this.ul.html(strhtml);
+            $(function () {
+                $("img.lazy").lazyload({ effect: "fadeIn" });
+            });
+            new CarBtn().init();
+        }
+        pagebtnclick(counst) {
+            let _this = this;
+            $('.row .item').on('click',function(){
+                let i = $(this).index()-1;
+                let start = i*counst;
+                let end = (i+1)*counst;
+                console.log(start,end,_this.msg.slice(start,end));
+                _this.renderli(_this.msg.slice(start,end));
+                $(this).css({background:'white'}).siblings().css({background:'#ccc'});
+                return false;
             });
         }
     }
