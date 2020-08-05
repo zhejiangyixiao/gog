@@ -4,16 +4,19 @@
  * @LastEditors: yixiao
  * @LastEditTime: 2020-07-26 17:44:06
  * @FilePath: \jsc:\Users\86182\Desktop\gog\src\shoppingcart.html
---> 
+-->
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>购物车</title>
     <link rel="stylesheet" href="./css/commen.css">
     <link rel="stylesheet" href="./css/shopping.css">
+    <script src="js/require.js" defer async="true" data-main="js/main" id="currentpage" currentmod="modcar"></script>
 </head>
+
 <body>
     <!-- 头部 -->
     <header>
@@ -320,77 +323,43 @@
 
     <div class="container">
         <div class="content">
-            <ul class="nav">
-                <li>
-                    <div class="input_box">
-                        <input id="search" type="text">
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-sousuo"></use>
-                          </svg>
+            <section>
+                <div class="title_box">
+                    <div class="title_left">
+                        您的订单
                     </div>
-                </li>
-                <li>类型 
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-arrow"></use>
-                      </svg>
-                </li>
-                <li>操作系统
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-arrow"></use>
-                      </svg>
-                </li>
-                <li>语言
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-arrow"></use>
-                      </svg>
-                </li>
-                <li>功能
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-arrow"></use>
-                      </svg>
-                </li>
-                <li>价格
-                    <svg class="icon" aria-hidden="true">
-                        <use xlink:href="#icon-arrow"></use>
-                      </svg>
-                </li>
-            </ul>
-
-            <div class="title_box">
-                <div class="title_left">
-                    已加入愿望单的游戏<span>(4)</span>
                 </div>
-                <div class="title_right">
-                    将愿望单公开给:
-                    <a href="javascript:;">
-                        不公开
-                        <svg class="icon" aria-hidden="true">
-                            <use xlink:href="#icon-arrow"></use>
-                          </svg>
-                    </a>
-                </div>
-            </div>
 
-            <!-- xuanran liebiao -->
-            <ul class="shop_car">
-                <li>
-                    <img src="https://images-1.gog-statics.com/0d4244c2fd3525dca5278a1bfa6e6a50608d690ec473e4597f53b76c8211aed4_100.jpg" alt="">
-                    <div class="title">Disco Elysium</div>
-                    <div class="star"></div>
-                    <div class="sys">口</div>
-                    <div class="type">角色扮演</div>
-                    <div class="zhekou">
-                        <span>-90%</span>
+                <!-- xuanran liebiao -->
+                <ul class="shop_car">
+                    
+                    <li class="last">
+                        <p>所有价格都包含了应缴的增值税</p>
+                        <div>
+                            <p>
+                                <span>订单总额:</span>
+                                <span>￥</span>
+                            </p>
+                            <p>您节约了￥</p>
+                        </div>
+                    </li>
+                </ul>
+            </section>
+            <section>
+                <div class="scrolldiv">
+                    <div class="title_box">
+                        <div class="title_left">
+                            您的支付
+                        </div>
                     </div>
-                    <div class="car">
-                        <span>
-                            <svg class="icon" aria-hidden="true">
-                                <use xlink:href="#icon-gouwuche1"></use>
-                              </svg>
-                        </span>
+                    <div class="paymoney">
+                        <span>￥0</span>
+                        <button>现在就支付您的订单</button>
                     </div>
-                </li>
-            </ul>
+                </div>
+
+            </section>
+
         </div>
     </div>
 
@@ -494,5 +463,5 @@
         </div>
     </footer>
 </body>
-<script src="./font/iconfont.js"></script>
+
 </html>

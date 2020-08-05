@@ -23,6 +23,7 @@ if(isset($_POST['getlist'])){
     }
     echo json_encode($arr);
 }
+
 if(isset($_POST['getdetail'])){
     $sid = $_POST['sid'];
     //利用sid查找对应的数据，返回给前端。

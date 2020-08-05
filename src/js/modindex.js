@@ -1,5 +1,3 @@
-const { data } = require("jquery");
-
 define(['./render'], function (ren) {
 
     class Banner {

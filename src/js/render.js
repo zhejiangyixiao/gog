@@ -15,6 +15,19 @@ define([], function () {
                 callback(data);
             });
         }
+        getDetailData(sid,callback){
+            $.ajax({
+                url: 'http://localhost/gog/php/result.php',
+                data: {
+                    getdetail: '1',
+                    sid,
+                },
+                dataType: 'json',
+                method: 'post',
+            }).done(data => {
+                callback(data);
+            });
+        }
     }
 
 

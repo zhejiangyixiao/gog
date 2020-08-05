@@ -136,6 +136,7 @@ define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../..
         constructor() {
             this.ul = $('.prolist');
             this.msg = null;
+            this.flag = null;
         }
         init() {
 
@@ -173,13 +174,14 @@ define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../..
             let page = Math.ceil(msg.length / counst);
             let arr = [];
             arr[page-1] = '1';
-            let strhtml = '<li class="first">&lt;</li>';
+            let strhtml = '<li class="first" style="display:none">&lt;</li>';
             $.each(arr,function(index,value){
                 strhtml += `<li class="item">${index+1}</li>`
             });
-            strhtml += '<li>&gt;</li>';
+            strhtml += '<li class="last">&gt;</li>';
+            console.log(strhtml);
             $('.row').html(strhtml);
-
+            $('.row .item').eq(0).css('background','white');
         }
         renderli(msg) {
             let strhtml = '';
@@ -251,12 +253,57 @@ define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../..
             let _this = this;
             $('.row .item').on('click',function(){
                 let i = $(this).index()-1;
+                _this.flag = i;
+                if(i === 0){
+                    $('.row .first').css('display','none');
+                    $('.row .last').css('display','flex');
+                }else if(i === ($('.row .item').length-1)){
+                    $('.row .first').css('display','flex');
+                    $('.row .last').css('display','none');
+                }else{
+                    $('.row .last').css('display','flex');
+                    $('.row .first').css('display','flex');
+                }
                 let start = i*counst;
                 let end = (i+1)*counst;
                 console.log(start,end,_this.msg.slice(start,end));
                 _this.renderli(_this.msg.slice(start,end));
                 $(this).css({background:'white'}).siblings().css({background:'#ccc'});
                 return false;
+            });
+            $('.row .first').on('click',function(){
+                 _this.flag--;
+                 if(_this.flag === 0){
+                    $('.row .first').css('display','none');
+                    $('.row .last').css('display','flex');
+                }else if(_this.flag === ($('.row .item').length-1)){
+                    $('.row .first').css('display','flex');
+                    $('.row .last').css('display','none');
+                }else{
+                    $('.row .last').css('display','flex');
+                    $('.row .first').css('display','flex');
+                }
+                let start =  _this.flag*counst;
+                let end = ( _this.flag+1)*counst;
+                _this.renderli(_this.msg.slice(start,end));
+                $('.row .item').eq( _this.flag).css({background:'white'}).siblings().css({background:'#ccc'});
+            });
+            $('.row .last').on('click',function(){
+                _this.flag++;
+                if(_this.flag === 0){
+                   $('.row .first').css('display','none');
+                   $('.row .last').css('display','flex');
+               }else if(_this.flag === ($('.row .item').length-1)){
+                   $('.row .first').css('display','flex');
+                   $('.row .last').css('display','none');
+               }else{
+                   $('.row .last').css('display','flex');
+                   $('.row .first').css('display','flex');
+               }
+               let start =  _this.flag*counst;
+               let end = ( _this.flag+1)*counst;
+               _this.renderli(_this.msg.slice(start,end));
+               $('.row .item').eq( _this.flag).css({background:'white'}).siblings().css({background:'#ccc'});
             });
         }
     }
