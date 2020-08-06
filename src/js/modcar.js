@@ -105,10 +105,10 @@ define(['render', '../../node_modules/jquery.cookie/jquery.cookie','modindex'], 
         });
     }
 
-
+  
 
     function cookietoarray() {
-        if ($.cookie('cookiesid')) { //cookie存在
+        if ($.cookie('cookiesid')) { //cookie存在 
             arrsid = $.cookie('cookiesid').split(',');
         } else {
             arrsid = [];

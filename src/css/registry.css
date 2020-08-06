@@ -23,7 +23,7 @@ form input {
     border-radius: 3px;
     color: #E9E9E9;
     padding: 8px 6px;
-    display: block;
+    /* display: block; */
     box-shadow: none;
     border: none;
 }

@@ -30,6 +30,6 @@ if(isset($_POST['userr'])&&isset($_POST['pass'])){
     if($result->fetch_assoc()){
         echo 1;
     }else{
-        echo 0;
+        echo 2;
     }
 }

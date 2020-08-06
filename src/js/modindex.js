@@ -1,4 +1,4 @@
-define(['./render'], function (ren) {
+define(['./render', '../../node_modules/jquery.cookie/jquery.cookie'], function (ren) {
 
     class Banner {
         constructor() {
@@ -33,7 +33,7 @@ define(['./render'], function (ren) {
 
             this.sliderclick();
             this.slider_hoverClick();
-            this.slider_hover();
+            // this.slider_hover();
             this.btnclick();
             this.bannerhover();
         }
@@ -225,7 +225,6 @@ define(['./render'], function (ren) {
         }
     }
 
-
     class Nav {
         constructor(data) {
             this.list = $('.nav_left').find('>li').not('.first_li');
@@ -234,7 +233,38 @@ define(['./render'], function (ren) {
             this.data = data;
         }
         init() {
+            if($.cookie('username')){
+                $(this.list.eq(4)).html('欢迎登录,'+$.cookie('username')+'! <span class="quitbtn">退出</span>');
+                $(this.list.eq(4)).css('color','white');
+
+                $('.quitbtn').on('click', () =>{
+                    $.cookie('username','', {
+                        expires: -1,
+                        path: '/'
+                    });
+                    $(this.list.eq(4)).html(`
+                    <a>
+                        登录
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-arrow"></use>
+                        </svg>
+                    </a>
+                    <div class="menu_list">
+                        <ul>
+                            <li><a href="./registry.html">创建</a></li>
+                            <li><a href="./login.html">登录</a></li>
+                        </ul>
+                    </div>
+                    
+                    `);
+                })
+            }
+
+            $($('.nav_left li').eq(0)).on('click',function () {
+                location.href = `http://localhost/gog/src/index1.html`;
+            });
             this.show_menulist();
+
         }
         show_menulist() {
             let _this = this;
@@ -251,7 +281,6 @@ define(['./render'], function (ren) {
                 this.menu_detail.hide();
             })
             this.menulist.on('mouseover', 'li>a', function () {
-                console.log($(this).text().trim());
                 $(this).addClass('active').parent().siblings('li').find('a').removeClass('active');
                 $(this).parent().parent().siblings('ul').find('>li a').removeClass('active');
                 // 根据不同li  二级menu显示不同的内容
@@ -265,7 +294,6 @@ define(['./render'], function (ren) {
                 let arr = _this.data;
                 imgs.each((i, v) => {
                     url = arr[i].logourl;
-                    console.log(url);
                     $(v).attr('src', url);
                     sys.eq(i).html(arr[i].system);
                     zhekou.eq(i).html(`-${arr[i].zhekou}%`);
@@ -294,7 +322,11 @@ define(['./render'], function (ren) {
             $(v).attr('src', url);
             sys.eq(i).html(arr[i].system);
             title.eq(i).html(arr[i].title);
-            zhekou.eq(i).html(`-${arr[i].zhekou}%`);
+            if(arr[i].zhekou !== '0'){
+                zhekou.eq(i).html(`-${arr[i].zhekou}%`);
+            }else{
+                zhekou.eq(i).hide();
+            }
             price.eq(i).html(`¥${arr[i].price}.00`);
             $(v).css({ 'background': `url('${arr[i].url}') no-repeat center` });
         })
@@ -314,15 +346,17 @@ define(['./render'], function (ren) {
             $(v).attr('src', url);
             sys.eq(i).html(arr[i].system);
             title.eq(i).html(arr[i].title);
-            zhekou.eq(i).html(`-${arr[i].zhekou}%`);
+            if(arr[i].zhekou !== '0'){
+                zhekou.eq(i).html(`-${arr[i].zhekou}%`);
+            }else{
+                zhekou.eq(i).hide();
+            }
             price.eq(i).html(`¥${arr[i].price}.00`);
             $(v).css({ 'background': `url('${arr[i].url}') no-repeat center` });
         })
     }
     ren.ren.getIndexData(function (data) {
-        console.log(data);
         new Nav(data).init();
-        console.log(11);
         tuijianrender(data);
         customrender(data);
     });

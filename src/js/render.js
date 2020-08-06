@@ -28,6 +28,31 @@ define([], function () {
                 callback(data);
             });
         }
+        getUsername(user,callback){
+            $.ajax({
+                url: 'http://localhost/gog/php/reg.php',
+                data: {
+                    user
+                },
+                dataType: 'json',
+                method: 'post',
+            }).done(data => {
+                callback(data);
+            });
+        }
+        getLogininfo(userr,pass,callback){
+            $.ajax({
+                url: 'http://localhost/gog/php/reg.php',
+                data: {
+                    userr,
+                    pass,
+                },
+                dataType: 'json',
+                method: 'post',
+            }).done(data => {
+                callback(data);
+            });
+        }
     }
 
 
