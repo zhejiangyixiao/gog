@@ -1,5 +1,6 @@
 <?php
 header('content-type:text/html;charset=utf-8;');
+
 include 'conn.php';
 //注册成功 将数据存入数据库 并跳转页面
 if(isset($_POST['submit'])){
@@ -8,7 +9,7 @@ if(isset($_POST['submit'])){
     $email = $_POST['email'];
     $result = $conn->query("insert  registry values(null,'$username','$password','$email',NOW())");
     //php页面跳转
-    header('location:http://localhost/gog/src/login.html');
+    header('location:http://10.31.163.73/gog/src/login.html');
 }
 
 // 获取前端传入的user 查询用户名是否重名  返回1 为重名 0 为不重名

@@ -59,10 +59,12 @@ define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../..
         constructor() {
             this.lists = $('.prolist li');
             this.arrsid = [];
+            this.navright = $('.nav_right');
         }
         init() {
             let _this = this;
             this.cookietoarray();
+            
             if (this.arrsid.length > 0) {
                 $.each(this.lists, (index, value) => {
                     let sid = $(value).find('a').attr('data-flag');
@@ -90,7 +92,7 @@ define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../..
             });
 
             this.lists.on('click', function () {
-                location.href = `http://localhost/gog/src/detail.html?sid=${$(this).find('a').attr('data-flag')}`;
+                location.href = `http://10.31.163.73/gog/src/detail.html?sid=${$(this).find('a').attr('data-flag')}`;
                 return false;
             });
             this.lists.on('click', 'a', function () {
@@ -107,8 +109,6 @@ define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../..
                 } else {
                     $.removeCookie('cookiesid');
                     _this.arrsid.splice($.inArray(sid, _this.arrsid), 1);
-                    console.log(sid);
-                    console.log(_this.arrsid);
                     $.cookie('cookiesid', _this.arrsid, {
                         expires: 7,
                         path: '/'
@@ -116,8 +116,13 @@ define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../..
                     $(this).find('span').hide().siblings('.icon').show();
                 }
 
-
-
+              console.log('加入了购物车');
+                  // 购物车图标
+            if(_this.arrsid.length>0){
+                _this.navright.find('li').eq(2).find('span').html(_this.arrsid.length);
+            }else{
+                _this.navright.find('li').eq(2).find('span').html(0);
+            }
 
 
                 return false;
@@ -151,7 +156,7 @@ define(['modindex', '../../node_modules/jquery-lazyload/jquery.lazyload', '../..
                 arrsid = [];
             }
             $.ajax({
-                url: 'http://localhost/gog/php/result.php',
+                url: 'http://10.31.163.73/gog/php/result.php',
                 dataType: 'json',
                 method: 'post',
                 data: {

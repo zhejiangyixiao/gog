@@ -7,8 +7,11 @@
  * @FilePath: \jsStudyc:\phpStudy\PHPTutorial\WWW\sb\day22\case\php\conn.php
  */ 
 header('content-type:text/html;charset=utf-8;');
+header('Access-Control-Allow-Origin:*');
+header('Access-Control-Allow-Method:POST,GET');
 
-define('HOST', 'localhost'); //主机名
+
+define('HOST', '127.0.0.1'); //主机名
 define('USERNAME', 'root'); //用户名
 define('PASSWORD', 'root'); //密码
 define('DBNAME', 'gog'); //数据库名

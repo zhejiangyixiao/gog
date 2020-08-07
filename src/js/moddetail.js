@@ -1,4 +1,4 @@
-define(['render', '../../node_modules/jquery.cookie/jquery.cookie'], function (ren) {
+define(['render', '../../node_modules/jquery.cookie/jquery.cookie','modindex'], function (ren) {
     let sid = location.search.substring(5);
     let arrsid = [];
     function cookietoarray() {
@@ -72,6 +72,12 @@ define(['render', '../../node_modules/jquery.cookie/jquery.cookie'], function (r
                 });
 
             }
+              // 购物车图标
+              if(arrsid.length>0){
+                $('.nav_right').find('li').eq(2).find('span').html(arrsid.length);
+            }else{
+                $('.nav_right').find('li').eq(2).find('span').html(0);
+            }
         });
     }
     // 立即付款按钮
@@ -86,7 +92,7 @@ define(['render', '../../node_modules/jquery.cookie/jquery.cookie'], function (r
                 $('.card button span').html('已加入购物车');
                 $('.card button span').css('color', 'green');
             }
-            location.href = `http://localhost/gog/src/shoppingcart.html`;
+            location.href = `http://10.31.163.73/gog/src/shoppingcart.html`;
 
         });
     }

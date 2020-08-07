@@ -1,4 +1,4 @@
-define(['render'], function (ren) {
+define(['render','modindex'], function (ren) {
     const $regbtn = $('#submit');
     const $user = $('#username');
     const $pass = $('#password');

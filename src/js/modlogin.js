@@ -1,4 +1,4 @@
-define(['render', '../../node_modules/jquery.cookie/jquery.cookie','sha1'], function(ren) {
+define(['render', '../../node_modules/jquery.cookie/jquery.cookie','sha1','modindex'], function(ren) {
     const $loginbtn = $('.btn');
     const $user = $('#username');
     const $pass = $('#password');
@@ -9,11 +9,11 @@ define(['render', '../../node_modules/jquery.cookie/jquery.cookie','sha1'], func
         ren.ren.getLogininfo($user.val(),hex_sha1($pass.val()),function(data){
             console.log(data);
             if(data === 1){//登陆成功
-                $.cookie('cookiesid', $user.val(), {
+                $.cookie('username', $user.val(), {
                     expires: 7,
                     path: '/'
                 });
-                location.href = `http://localhost/gog/src/index1.html`;
+                location.href = `http://10.31.163.73/gog/src/index1.html`;
             }else{//登录失败
                 $error_info.show();
                 $pass.val('');

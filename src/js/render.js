@@ -5,7 +5,7 @@ define([], function () {
         }
         getIndexData(callback) {
             $.ajax({
-                url: 'http://localhost/gog/php/result.php',
+                url: 'http://10.31.163.73/gog/php/result.php',
                 data: {
                     getlist: '3'
                 },
@@ -17,7 +17,7 @@ define([], function () {
         }
         getDetailData(sid,callback){
             $.ajax({
-                url: 'http://localhost/gog/php/result.php',
+                url: 'http://10.31.163.73/gog/php/result.php',
                 data: {
                     getdetail: '1',
                     sid,
@@ -30,7 +30,7 @@ define([], function () {
         }
         getUsername(user,callback){
             $.ajax({
-                url: 'http://localhost/gog/php/reg.php',
+                url: 'http://10.31.163.73/gog/php/reg.php',
                 data: {
                     user
                 },
@@ -42,7 +42,7 @@ define([], function () {
         }
         getLogininfo(userr,pass,callback){
             $.ajax({
-                url: 'http://localhost/gog/php/reg.php',
+                url: 'http://10.31.163.73/gog/php/reg.php',
                 data: {
                     userr,
                     pass,

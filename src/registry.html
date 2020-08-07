@@ -20,7 +20,7 @@
     <header>
         <nav>
             <ul class="nav_left nav_ul">
-                <li>
+                <li class="first_li">
                     <a href="javascript:;">
                         <svg class="icon icon_login" aria-hidden="true">
                             <use xlink:href="#icon-cib-gog-com"></use>
@@ -33,7 +33,7 @@
                             <use xlink:href="#icon-arrow"></use>
                         </svg>
                     </a>
-                    <div class="menu_list">
+                    <div class="menu_list" >
                         <!-- menu_promotion通过接口显示当前促销的游戏，有数据显示，无数据隐藏 -->
                         <ul class="menu_promotion" style="display: none;"></ul>
                         <!-- 三个大类 -->
@@ -216,7 +216,7 @@
                                         </div>
                                     </li>
                                 </ul>
-                                <a href="javascript:;">浏览所有<span>最新发布</span>的游戏</a>
+                                <a href="#">浏览所有<span>最新发布</span>的游戏</a>
                             </div>
                         </div>
                     </div>
@@ -275,7 +275,7 @@
                         </ul>
                     </div>
                 </li>
-                <li style="display: none;">
+                <li>
                     <a>
                         登录
                         <svg class="icon" aria-hidden="true">
@@ -321,7 +321,7 @@
     <div class="container" >
         <fieldset>
             <legend>创建账户</legend>
-            <form action="http://localhost/gog/php/reg.php" method="POST" autocomplete="off">
+            <form action="http://10.31.163.73/gog/php/reg.php" method="POST" autocomplete="off">
                 <p>
                     <label for="username">用户名</label><br>
                     <input type="text" id="username" name="username"><span></span>

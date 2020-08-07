@@ -1,5 +1,5 @@
 define(['./render', '../../node_modules/jquery.cookie/jquery.cookie'], function (ren) {
-
+    
     class Banner {
         constructor() {
             this.banner = $('.banner');
@@ -231,8 +231,20 @@ define(['./render', '../../node_modules/jquery.cookie/jquery.cookie'], function 
             this.menulist = $('.menu_list');
             this.menu_detail = $('.menu_detail');
             this.data = data;
+            this.navright = $('.nav_right');
         }
         init() {
+            let arrsid = [];
+            if ($.cookie('cookiesid')) { //cookie存在 
+                arrsid = $.cookie('cookiesid').split(',');
+            } else {
+                arrsid = [];
+            }
+            if(arrsid.length>0){
+                this.navright.find('li').eq(2).find('span').html(arrsid.length);
+            }else{
+                this.navright.find('li').eq(2).find('span').html(0);
+            }
             if($.cookie('username')){
                 $(this.list.eq(4)).html('欢迎登录,'+$.cookie('username')+'! <span class="quitbtn">退出</span>');
                 $(this.list.eq(4)).css('color','white');
@@ -258,10 +270,19 @@ define(['./render', '../../node_modules/jquery.cookie/jquery.cookie'], function 
                     
                     `);
                 })
+
             }
 
+            this.navright.find('li').eq(2).on('click',function(){
+                if($.cookie('username')){
+                    location.href = `http://10.31.163.73/gog/src/shoppingcart.html`;
+                }else{
+                    alert('请登录');
+                }
+            });
+
             $($('.nav_left li').eq(0)).on('click',function () {
-                location.href = `http://localhost/gog/src/index1.html`;
+                location.href = `http://10.31.163.73/gog/src/index1.html`;
             });
             this.show_menulist();
 
@@ -355,6 +376,7 @@ define(['./render', '../../node_modules/jquery.cookie/jquery.cookie'], function 
             $(v).css({ 'background': `url('${arr[i].url}') no-repeat center` });
         })
     }
+
     ren.ren.getIndexData(function (data) {
         new Nav(data).init();
         tuijianrender(data);

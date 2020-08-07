@@ -74,7 +74,7 @@ define(['render', '../../node_modules/jquery.cookie/jquery.cookie','modindex'], 
                         $('.paymoney span').html('还未添加游戏');
                         $('.paymoney button').css('background', 'gray');
                         $('.shop_car .last').on('click',function(){
-                            location.href = 'http://localhost/gog/src/prolist.html';
+                            location.href = 'http://10.31.163.73/gog/src/prolist.html';
                         });
                     } else {
                         $('.shop_car .last div').show();
@@ -92,6 +92,13 @@ define(['render', '../../node_modules/jquery.cookie/jquery.cookie','modindex'], 
                         path: '/'
                     });
                     link.remove();
+
+                      // 购物车图标
+              if(arrsid.length>0){
+                $('.nav_right').find('li').eq(2).find('span').html(arrsid.length);
+            }else{
+                $('.nav_right').find('li').eq(2).find('span').html(0);
+            }
                 });
             });
         });
@@ -101,7 +108,7 @@ define(['render', '../../node_modules/jquery.cookie/jquery.cookie','modindex'], 
         $('.paymoney span').html('还未添加游戏');
         $('.paymoney button').css('background', 'gray');
         $('.shop_car .last').on('click',function(){
-            location.href = 'http://localhost/gog/src/prolist.html';
+            location.href = 'http://10.31.163.73/gog/src/prolist.html';
         });
     }
 
